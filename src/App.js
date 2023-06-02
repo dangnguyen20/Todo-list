@@ -9,7 +9,7 @@ const App = () => {
     <div className="container">
       <Header />
       <Forms />
-      <List/>
+      <List />
       <Footer />
     </div>
   );
