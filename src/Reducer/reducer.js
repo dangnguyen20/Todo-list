@@ -3,15 +3,20 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   //khởi tạo trạng thái ban đầu
   tasks: [],
+  currentPage: 0,
+  tasksPerPage: 5,
 };
-
 const taskSlice = createSlice({
   //sử dụng tạo slice
   name: "tasks", //tên slice
   initialState, //trạng thái ban đầu
   reducers: {
     addTask: (state, action) => {
-      state.tasks.unshift(action.payload);
+      if (Array.isArray(state.tasks)) {
+        state.tasks.unshift(action.payload);
+      } else {
+        state.tasks = [action.payload];
+      }
     },
     updateTask: (state, action) => {
       const { id, task } = action.payload;
@@ -47,6 +52,10 @@ const taskSlice = createSlice({
       const { tasks } = action.payload;
       return { ...state, tasks };
     },
+    setPage: (state, action) => {
+      state.currentPage = action.payload;
+      return state;
+    },
   },
 });
 
@@ -58,5 +67,6 @@ export const {
   uncompletedTask,
   deleteTask,
   moveTask,
+  setPage,
 } = taskSlice.actions;
 export default taskSlice.reducer;

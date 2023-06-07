@@ -230,7 +230,7 @@ input[type="checkbox"]:checked+span.todo-text {
   border-top: 1px solid #EEEEEE;
   padding-top: 8px;
   color: #B1BACB;
-  margin-top: 176px;
+  margin-top: 130px;
 }
 
 .selected {
@@ -240,6 +240,52 @@ input[type="checkbox"]:checked+span.todo-text {
 .clear {
   margin-left: auto;
   cursor: pointer;
+}
+
+.clear:hover {
+  color: #2D70FD;
+}
+
+.clear:active {
+  font-weight: bold;
+}
+
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  color: black;
+  margin-top: 9px;
+}
+
+.pagination a {
+  display: inline-block;
+  padding: 5px 10px;
+  margin-right: 5px;
+  text-decoration: none;
+  color: #333;
+  cursor: pointer;
+}
+
+.pagination .active {
+  font-weight: bold;
+}
+
+.pagination .break-me {
+  margin-right: 10px;
+}
+
+.pagination a:hover {
+  color: #2D70FD;
+}
+
+.pagination a:focus {
+  color: #2D70FD;
+}
+
+.pagination a:active {
+  color: #2D70FD;
+  font-weight: bold;
 }
 
 /* Footer End */
