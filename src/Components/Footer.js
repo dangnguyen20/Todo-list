@@ -16,7 +16,7 @@ const Footer = ({ onPageChange }) => {
     if (!tasks || !Array.isArray(tasks)) {
       return 0;
     }
-    return tasks ? tasks.filter((task) => task.completed).length : 0;
+    return tasks ? tasks.filter((task) => task && task.completed).length : 0;
   }, [tasks]);
 
   return (

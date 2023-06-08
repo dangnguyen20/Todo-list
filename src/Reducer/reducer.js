@@ -5,6 +5,7 @@ const initialState = {
   tasks: [],
   currentPage: 0,
   tasksPerPage: 5,
+  filterType: "",
 };
 const taskSlice = createSlice({
   //sử dụng tạo slice
@@ -56,6 +57,10 @@ const taskSlice = createSlice({
       state.currentPage = action.payload;
       return state;
     },
+    setFilter: (state, action) => {
+      state.filterType = action.payload;
+      return state;
+    },
   },
 });
 
@@ -68,5 +73,6 @@ export const {
   deleteTask,
   moveTask,
   setPage,
+  setFilter,
 } = taskSlice.actions;
 export default taskSlice.reducer;
