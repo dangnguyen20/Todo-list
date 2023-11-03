@@ -84,7 +84,7 @@ body {
 /* End Header */
 /* Form */
 .input__lg {
-  font-family: 'Inter';
+  font-family: inherit;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -148,6 +148,74 @@ input {
 }
 
 /* End Form */
+/* List */
+.filter-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sorting {
+  width: 120px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border: 1px solid #B1BACB;
+  margin-top: 15px;
+  /* margin-bottom: -10px; */
+  cursor: pointer;
+  /* justify-self: flex-end; */
+
+}
+
+select option:hover {
+  background-color: #2D70FD;
+}
+
+.btn-all-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.btn-complete-all {
+  border: 1px solid #B1BACB;
+  text-align: center;
+  cursor: pointer;
+  margin-right: 5px;
+  padding: 5px;
+}
+
+.btn-uncomplete-all {
+  border: 1px solid #B1BACB;
+  text-align: center;
+  cursor: pointer;
+  margin-left: 5px;
+  padding: 5px;
+}
+
+.btn-complete-all:hover {
+  background-color: #f7fafa;
+}
+
+.btn-complete-all:focus {
+  border-color: #008296;
+  box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+  outline: 0;
+}
+
+.btn-uncomplete-all:hover {
+  background-color: #f7fafa;
+}
+
+.btn-uncomplete-all:focus {
+  border-color: #008296;
+  box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+  outline: 0;
+}
+
+/* End List */
 /* To do */
 ul {
   margin-top: 35px;
@@ -157,27 +225,69 @@ ul {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+  transition: box-shadow 0.3s;
+
 }
 
 .todo>* {
-  padding: 14px 15px;
+  padding: 15px;
+}
+
+.todo:hover {
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+
 }
 
 
 .todo-text {
   cursor: pointer;
   font-weight: 550;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .todo-text:hover {
   color: #2D70FD;
 }
 
-.todo-text:checked {
-  text-decoration: line-through;
+.dragging {
+  border: 0.5px;
+  box-shadow: 0 0 2px;
+}
+
+.button-container {
+  display: none;
+  position: absolute;
+  right: 0;
+  bottom: 6px;
+}
+
+.todo:hover .button-container {
+  display: flex;
+}
+
+.todo:active .button-container {
+  display: flex;
+}
+
+.task-container {
+  display: flex;
+  flex-grow: 1;
+  position: relative;
+  align-items: center;
 }
 
 /* End To Do */
+/* Date */
+.created-date {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* End Date */
 /* Check box */
 .cb {
   appearance: none;
@@ -190,6 +300,7 @@ ul {
   position: relative;
   padding: 11px;
   margin-top: 12px;
+  margin-left: 10px;
 }
 
 .cb:checked {
@@ -217,7 +328,7 @@ input[type="checkbox"]:checked {
   accent-color: rgb(60, 150, 60);
 }
 
-input[type="checkbox"]:checked+span.todo-text {
+input[type="checkbox"]:checked+.task-container span.todo-text {
   text-decoration: line-through;
   color: #8F98A8;
 }
@@ -267,8 +378,9 @@ input[type="checkbox"]:checked+span.todo-text {
   cursor: pointer;
 }
 
-.pagination .active {
+.pagination .active a {
   font-weight: bold;
+  color: #2D70FD;
 }
 
 .pagination .break-me {
@@ -289,3 +401,30 @@ input[type="checkbox"]:checked+span.todo-text {
 }
 
 /* Footer End */
+/* Progress Bar */
+.progress-bar {
+  width: 30%;
+  height: 20px;
+  background-color: #eee;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress {
+  height: 100%;
+  background-color: #2d70fd;
+  justify-content: center;
+  display: flex;
+}
+
+.percent-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* color: #fff; */
+}
+
+
+/* Progress bar end */

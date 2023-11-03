@@ -1,7 +1,8 @@
 import React, { useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { clearAllTask } from "../Reducer/reducer";
-import Pagination from "./Pagination";
+import Pagination from "../Utils/Pagination";
+import ProgressBar from "../Utils/ProgressBar";
 
 const Footer = ({ onPageChange }) => {
   const tasks = useSelector((state) => state.tasks); //sử dụng useSelector để truy cập vào mảng chứa tasks
@@ -22,10 +23,13 @@ const Footer = ({ onPageChange }) => {
   return (
     <div className="footer">
       <br />
-      <p className="selected">{selectedTask} item selected</p>
+      <p className="selected">
+        {selectedTask}/{tasks.length} tasks completed
+      </p>
+      <ProgressBar tasks={tasks} />
       <Pagination onPageChange={onPageChange} />
       <button onClick={handleClearAll} className="clear">
-        Clear All
+        Clear selected
       </button>
     </div>
   );
